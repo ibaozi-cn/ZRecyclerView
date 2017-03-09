@@ -26,7 +26,7 @@ ViewModel：将前面两者联系在一起的对象
 ## RecyclerView为什么要实现MVVM
 
 平时研发过程中我们遇到的是，不同的页面需要写不同的Adapter 去适配，需要不同的数据填充，如果是同样的数据，不同的展现形式，或者只有部分复用的数据呢，这时候不得不去重新写一个新的adapter去组织这些数据，并以不同的UI展示，MVVM就是要解决这样的问题，抽象出ViewModel层，让Model和View充分复用，一个页面可以随意组合。这样千变万化的页面无非还是那些数据，我多写几个不同的View即可。下面讲解实现思路。
-# View层实现
+## View层实现
 
 这一层相对简单，都知道RecyclerView.ViewHolder吧，这个类不正好作为我们的View层使用吗，顺便也抽象下，直接粘代码好丑：
 
@@ -64,7 +64,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
  
     public abstract void initView(); 
  }
-# Model层
+## Model层
 
 这一层也相对简单，完完全全就是你的数据对象，跟谁都可以结合。代码示例：
 
@@ -73,7 +73,7 @@ public class ItemTextModel {
     public long sortId;
     public String uuid;
 } 
-# ViewModel层
+## ViewModel层
 
 重点来了，这一层如何实现的呢？在RecyclerView 列表中一个ViewModel可以看做一个Item，一个Item有它的View和Model，将Model的数据填充到View上这就是这一层要做的事对吧。那么抽象出个类叫BaseViewModel，它的属性肯定有View 和Model，方法肯定是要将Model绑定到View上，如下方法
 

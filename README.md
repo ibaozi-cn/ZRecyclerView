@@ -68,11 +68,11 @@
 
     这一层也相对简单，完完全全就是你的数据对象，跟谁都可以结合。代码示例：
 
-    public class ItemTextModel { 
-        public String text;
+      public class ItemTextModel { 
+        public String text;\n
         public long sortId;
         public String uuid;
-    } 
+      } 
 ## ViewModel层
 
    重点来了，这一层如何实现的呢？在RecyclerView 列表中一个ViewModel可以看做一个Item，一个Item有它的View和Model，将Model的数据填充到View上这就是这一层要做的事对吧。那么抽象出个类叫BaseViewModel，它的属性肯定有View 和Model，方法肯定是要将Model绑定到View上，如下方法

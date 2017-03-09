@@ -66,10 +66,10 @@
         }
 ## Model层
 
-    这一层也相对简单，完完全全就是你的数据对象，跟谁都可以结合。代码示例：
+   这一层也相对简单，完完全全就是你的数据对象，跟谁都可以结合。代码示例：
 
       public class ItemTextModel { 
-        public String text;\n
+        public String text;
         public long sortId;
         public String uuid;
       } 
